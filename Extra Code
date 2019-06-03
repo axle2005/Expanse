@@ -1,0 +1,15 @@
+            else{
+                world.getProperties().setGeneratorType(GeneratorTypes.NETHER);
+                 for (int x = buffer.getBlockMin().getX(); x <= buffer.getBlockMax().getX(); x++) {
+                     for (int z = buffer.getBlockMin().getZ(); z <= buffer.getBlockMax().getZ(); z++) {
+                         for (int y = buffer.getBlockMin().getY(); y <= buffer.getBlockMax().getY(); y++) {
+                             if(y>=70){
+                                 buffer.setBlockType(x, y, z, BlockTypes.AIR);
+                             }
+
+                             }
+
+
+                         }
+                     }
+                 }

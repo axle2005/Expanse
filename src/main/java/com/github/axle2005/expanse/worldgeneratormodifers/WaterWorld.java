@@ -1,46 +1,62 @@
+/*
+ *   Copyright (c) 2019 Ryan Arnold (Axle)
+ *
+ *   Permission is hereby granted, free of charge, to any person obtaining a copy
+ *   of this software and associated documentation files (the "Software"), to deal
+ *   in the Software without restriction, including without limitation the rights
+ *   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *   copies of the Software, and to permit persons to whom the Software is
+ *   furnished to do so, subject to the following conditions:
+ *
+ *   The above copyright notice and this permission notice shall be included in all
+ *   copies or substantial portions of the Software.
+ *
+ *   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *   SOFTWARE.
+ */
+
 package com.github.axle2005.expanse.worldgeneratormodifers;
 
-import org.spongepowered.api.Sponge;
+import com.github.axle2005.expanse.Expanse;
+import com.github.axle2005.expanse.biomegenerators.OceanWorld;
 import org.spongepowered.api.data.DataContainer;
-import org.spongepowered.api.world.GeneratorTypes;
-import org.spongepowered.api.world.biome.BiomeGenerationSettings;
-import org.spongepowered.api.world.biome.BiomeType;
-import org.spongepowered.api.world.biome.BiomeTypes;
 import org.spongepowered.api.world.gen.WorldGenerator;
 import org.spongepowered.api.world.gen.WorldGeneratorModifier;
 import org.spongepowered.api.world.storage.WorldProperties;
 
-import com.github.axle2005.expanse.Expanse;
-import com.github.axle2005.expanse.Util;
-import com.github.axle2005.expanse.biomegenerators.OceanWorld;
+public class WaterWorld implements WorldGeneratorModifier {
 
-public class WaterWorld implements WorldGeneratorModifier{
 
-	
-	Expanse plugin;
-	public WaterWorld(Expanse expanse) {
-		// TODO Auto-generated constructor stub
-		this.plugin = plugin;
-	}
+    Expanse plugin;
 
-	@Override
-	public String getId() {
-		// TODO Auto-generated method stub
-		return "expanse:waterworld";
-	}
+    public WaterWorld(Expanse expanse) {
+        // TODO Auto-generated constructor stub
+        this.plugin = plugin;
+    }
 
-	@Override
-	public String getName() {
+    @Override
+    public String getId() {
+        // TODO Auto-generated method stub
+        return "expanse:waterworld";
+    }
 
-		return "Expanse Water World";
-	}
+    @Override
+    public String getName() {
 
-	@Override
-	public void modifyWorldGenerator(WorldProperties world, DataContainer settings, WorldGenerator worldGenerator) {
-	    worldGenerator.setBiomeGenerator(new OceanWorld());
-		world.setMapFeaturesEnabled(false);
-	    //worldGenerator.getGenerationPopulators().clear();
-		//worldGenerator.getPopulators().clear();
+        return "Expanse Water World";
+    }
+
+    @Override
+    public void modifyWorldGenerator(WorldProperties world, DataContainer settings, WorldGenerator worldGenerator) {
+        worldGenerator.setBiomeGenerator(new OceanWorld());
+        world.setMapFeaturesEnabled(false);
+        //worldGenerator.getGenerationPopulators().clear();
+        //worldGenerator.getPopulators().clear();
 		/*world.setGeneratorType(GeneratorTypes.OVERWORLD);
 		 
 		
@@ -62,8 +78,8 @@ public class WaterWorld implements WorldGeneratorModifier{
 		worldGenerator.setBaseGenerationPopulator((world1, buffer, biomes) -> {
 		});
 		*/
-		//Util.createSafeSpawn(world.getWorldName());
-		
-	}
+        //Util.createSafeSpawn(world.getWorldName());
+
+    }
 
 }
